@@ -1,4 +1,4 @@
-﻿namespace Customer.Microservice.API.Model
+﻿namespace Customer.Microservice.API.Entities.Model
 {
     public class Customer
     {

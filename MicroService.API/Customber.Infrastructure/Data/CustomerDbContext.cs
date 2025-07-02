@@ -8,7 +8,7 @@ namespace Customer.Microservice.API.Data
         {
 
         }
-        public DbSet<Model.Customer> Customers { get; set; }  
+        public DbSet<Entities.Model.Customer> Customers { get; set; }  
     }
 }
  

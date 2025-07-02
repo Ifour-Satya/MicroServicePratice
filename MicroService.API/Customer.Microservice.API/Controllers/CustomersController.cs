@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Customer.Microservice.API.Data;
-using Customer.Microservice.API.Model;
 
 namespace Customer.Microservice.API.Controllers
 {
@@ -22,15 +21,16 @@ namespace Customer.Microservice.API.Controllers
         }
 
         // GET: api/Customers
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Model.Customer>>> GetCustomers()
+        [HttpGet("GetCustomers")]
+        public async Task<ActionResult<IEnumerable<Entities.Model.Customer>>> GetCustomers()
         {
             return await _context.Customers.ToListAsync();
         }
 
+
         // GET: api/Customers/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Model.Customer>> GetCustomer(int id)
+        [HttpGet("GetCustomer/{id}")]
+        public async Task<ActionResult<Entities.Model.Customer>> GetCustomer(int id)
         {
             var customer = await _context.Customers.FindAsync(id);
 
@@ -44,8 +44,8 @@ namespace Customer.Microservice.API.Controllers
 
         // PUT: api/Customers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutCustomer(int id, Model.Customer customer)
+        [HttpPut("PutCustomer/{id}")]
+        public async Task<IActionResult> PutCustomer(int id, Entities.Model.Customer customer)
         {
             if (id != customer.Id)
             {
@@ -75,8 +75,8 @@ namespace Customer.Microservice.API.Controllers
 
         // POST: api/Customers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Model.Customer>> PostCustomer(Model.Customer customer)
+        [HttpPost("PostCustomer")]
+        public async Task<ActionResult<Entities.Model.Customer>> PostCustomer(Entities.Model.Customer customer)
         {
             _context.Customers.Add(customer);
             await _context.SaveChangesAsync();
@@ -85,7 +85,7 @@ namespace Customer.Microservice.API.Controllers
         }
 
         // DELETE: api/Customers/5
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteCustomer/{id}")]
         public async Task<IActionResult> DeleteCustomer(int id)
         {
             var customer = await _context.Customers.FindAsync(id);
