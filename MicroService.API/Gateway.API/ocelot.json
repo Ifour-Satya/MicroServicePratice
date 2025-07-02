@@ -1,0 +1,49 @@
+﻿{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Customers",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7143
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/Customers",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Products",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7295
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/Products",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+    }
+  ]
+}
+
+
+
+//{
+//  "Routes": [
+//    {
+//      "DownstreamPathTemplate": "/api/Customer",
+//      "UpstreamPathTemplate": "/GateWay/Customer",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 7138
+//        }
+//      ]
+//    }
+//  ],
+//  "GlobalConfiguration": {
+//    "BaseUrl": "http://localhost"
+//  }
+//}
